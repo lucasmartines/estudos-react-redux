@@ -1,23 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { Navbar, Nav } from "react-bootstrap";
+
 const Header = props => {
   return (
-    <nav className="navbar navbar-expand-md bg-dark navbar-dark">
-      <ul className="nav">
-        <li>
-          <Link className="nav-link" to="/">
+    <Navbar bg="dark" variant="dark" expand="lg">
+      <Link to="/">
+        <Navbar.Brand> Estudo React Redux {props.contador}</Navbar.Brand>
+      </Link>
+      <Navbar.Toggle aria-controls="navbar-nav" />
+      <Navbar.Collapse id="navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link to="/" as={Link}>
             Home
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link" to="/about">
-            about
-          </Link>
-        </li>
-        <li className="nav-link text-white">{props.contador}</li>
-      </ul>
-    </nav>
+          </Nav.Link>
+          <Nav.Link to="/about" as={Link}>
+            About
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
   );
 };
 const mapStateToProps = state => ({
