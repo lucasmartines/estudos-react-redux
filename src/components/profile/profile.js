@@ -6,14 +6,10 @@ const Profile = props => {
   let [user, setUser] = useState(props.user.name);
   let [photo, setPhoto] = useState(props.user.photo);
 
-  console.log(props);
   if (props.name !== "") {
     user = props.user.name;
   }
 
-  const sub = store.subscribe(() => {
-    console.log(store.getState().usuario);
-  });
   return (
     <Container className="">
       <Card className="col-12 col-sm-8 col-md-6 mt-3 mx-auto">
