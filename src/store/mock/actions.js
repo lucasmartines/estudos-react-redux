@@ -4,3 +4,10 @@ export const getAllUsers = items => {
     items
   };
 };
+
+export const modifyUser = item => {
+  return {
+    type: "CHANGE_ITEM",
+    item
+  };
+};

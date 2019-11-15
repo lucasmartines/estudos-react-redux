@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 import { connect } from "react-redux";
-import { getAllUsers } from "../../store/mock/actions.js";
+import { getAllUsers, modifyUser } from "../../store/mock/actions.js";
 import axios from "axios";
 import Item from "./Item.js";
 
@@ -16,12 +16,14 @@ class dataComponent extends Component {
     });
   }
   toggleComplete(id) {
-    this.props.mock.items.forEach(e => {
+    this.props.dispatch(modifyUser(id));
+    this.forceUpdate();
+    /* this.props.mock.items.forEach(e => {
       if (e.id === id) {
         e.completed = !e.completed;
         this.forceUpdate();
       }
-    });
+    });*/
   }
   render() {
     return (
