@@ -8,7 +8,7 @@ import "./styles.css";
 import Home from "./components/home/home";
 import Header from "./components/header";
 import About from "./components/about/about.js";
-
+import Profile from "./components/profile/profile.js";
 import { Provider } from "react-redux";
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
         <Switch>
           <Route component={Home} path="/" exact />
           <Route component={About} path="/about" />
+          <Route component={Profile} path="/profile" />
         </Switch>
       </Router>
     </div>
