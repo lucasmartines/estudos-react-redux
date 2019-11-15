@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { getAllUsers, modifyUser } from "../../store/mock/actions.js";
 import axios from "axios";
 import Item from "./Item.js";
+import CreateItem from "./CreateItem.js";
+import { Container } from "react-bootstrap";
 
 class dataComponent extends Component {
   constructor(props) {
@@ -18,18 +20,17 @@ class dataComponent extends Component {
   toggleComplete(id) {
     this.props.dispatch(modifyUser(id));
     this.forceUpdate();
-    /* this.props.mock.items.forEach(e => {
-      if (e.id === id) {
-        e.completed = !e.completed;
-        this.forceUpdate();
-      }
-    });*/
   }
+  insertItem(name) {}
   render() {
     return (
-      <>
+      <Container>
         <h2> Items </h2>
-
+        <CreateItem
+          getInput={name => {
+            this.insertItem(name);
+          }}
+        />
         <ul className="text-left">
           {this.props.mock.items.map(element => (
             // <div key={element.id}> {element.title} </div>
@@ -45,7 +46,7 @@ class dataComponent extends Component {
             />
           ))}
         </ul>
-      </>
+      </Container>
     );
   }
 }
