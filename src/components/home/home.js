@@ -1,29 +1,36 @@
-import React, { useState, Component } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { incrementar, decrementar } from "../../store/contador/reducer";
-import ContadorReducer from "../../store/contador/reducer";
-
+import * as contadorAction from "../../store/contador/action";
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      contador: 0
-    };
+
+    console.log(props);
   }
-  componentDidMount() {}
+  changeConter(number = 1) {
+    number > 0
+      ? this.props.dispatch(contadorAction.incrementar())
+      : this.props.dispatch(contadorAction.decrementar());
+  }
   render() {
     return (
       <>
-        <h2>Teste {this.state.contador}</h2>
-        <button className="btn btn-primary">Upgrade Variavel</button>
-        <button className="btn btn-primary">Reduce Variavel</button>
+        {/* <h2>Teste {store.getState().contador}</h2> */}
+        <h2> Contador {this.props.contador}</h2>
+        <button onClick={e => this.changeConter(1)} className="btn btn-primary">
+          Upgrade Variavel
+        </button>
+        <button
+          onClick={e => this.changeConter(-1)}
+          className="btn btn-primary"
+        >
+          Reduce Variavel
+        </button>
       </>
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    contador: state.contador
-  };
-};
+const mapStateToProps = state => ({
+  contador: state.contador
+});
 export default connect(mapStateToProps)(Home);
