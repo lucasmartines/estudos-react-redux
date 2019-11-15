@@ -7,10 +7,7 @@ const Header = props => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Link to="/">
-        <Navbar.Brand>
-          {" "}
-          {props.usuario.name} {props.contador}
-        </Navbar.Brand>
+        <Navbar.Brand> {props.contador}</Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="navbar-nav" />
       <Navbar.Collapse id="navbar-nav">
@@ -23,6 +20,16 @@ const Header = props => {
           </Nav.Link>
           <Nav.Link to="/profile" as={Link}>
             Profile
+          </Nav.Link>
+          <Nav.Link to="/data" as={Link}>
+            Data
+          </Nav.Link>
+        </Nav>
+        {/* End Nav of mr-auto */}
+        <Nav>
+          <Nav.Link>{props.usuario.name}</Nav.Link>
+          <Nav.Link to="/profile" as={Link}>
+            <img alt="profile" src={props.usuario.photo} width={28} />
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>

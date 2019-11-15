@@ -10,6 +10,7 @@ import Header from "./components/header";
 import About from "./components/about/about.js";
 import Profile from "./components/profile/profile.js";
 import { Provider } from "react-redux";
+import Data from "./components/fetch_data/dataComponent.js";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route component={Home} path="/" exact />
           <Route component={About} path="/about" />
           <Route component={Profile} path="/profile" />
+          <Route component={Data} path="/data" />
         </Switch>
       </Router>
     </div>

@@ -4,3 +4,9 @@ export const renameUser = (name = "") => {
     name
   };
 };
+export const changeUserPhoto = (photo = "") => {
+  return {
+    type: "CHANGE_PHOTO",
+    photo
+  };
+};

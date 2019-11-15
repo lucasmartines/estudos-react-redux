@@ -4,8 +4,10 @@ import * as contadorAction from "../../store/contador/action";
 import { Card, Form, Container } from "react-bootstrap";
 
 class Home extends Component {
+  /** */
   constructor(props) {
     super(props);
+    this.state = {}
   }
   changeConter(number = 1) {
     number > 0
