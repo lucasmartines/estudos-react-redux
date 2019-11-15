@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { Navbar, Nav } from "react-bootstrap";
+import { Badge, Navbar, Nav } from "react-bootstrap";
 
 const Header = props => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Link to="/">
-        <Navbar.Brand> {props.contador}</Navbar.Brand>
+        <Navbar.Brand>
+          <span>Contagem de items</span>
+          <Badge variant="light" className="mx-2">
+            {" "}
+            {props.contador}{" "}
+          </Badge>
+        </Navbar.Brand>
       </Link>
       <Navbar.Toggle aria-controls="navbar-nav" />
       <Navbar.Collapse id="navbar-nav">
